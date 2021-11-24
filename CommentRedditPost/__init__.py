@@ -46,7 +46,7 @@ def main(mytimer: func.TimerRequest) -> None:
     r = bot_login()
 
     # Get the last 10 posts from the subreddit
-    posts = get_last_posts(r, os.environ["subreddit"], 1)
+    posts = get_last_posts(r, os.environ["subreddit"], 100)
 
     # Loop through the posts
     for post in posts:
