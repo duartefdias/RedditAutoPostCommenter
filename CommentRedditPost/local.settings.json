@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "storageConnectionString - autopopulated by azure",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "username": "myRedditUsernamer",
+    "password": "myUserRedditPassword",
+    "client_id": "appClientId",
+    "client_secret": "appClientSecret",
+    "subreddit": "targetSubreddit",
+    "comment": "Nice post, thanks for sharing!"
+  }
+}
