@@ -26,9 +26,9 @@ def get_last_posts(r, subreddit, limit):
 def add_comment_to_post(r, post, comment):
     post.reply(comment)
 
-def check_if_comment_exists(r, post, comment):
+def check_if_comment_exists(r, post):
     for comment in post.comments.list():
-        if comment.body == comment:
+        if comment.author == r.user.me():
             return True
     return False
 
@@ -45,7 +45,7 @@ def main(mytimer: func.TimerRequest) -> None:
     # Create an instance of the Reddit API
     r = bot_login()
 
-    # Get the last 10 posts from the subreddit
+    # Get the last 100 posts from the subreddit
     posts = get_last_posts(r, os.environ["subreddit"], 100)
 
     # Loop through the posts
@@ -53,7 +53,7 @@ def main(mytimer: func.TimerRequest) -> None:
         # If the post is not a self post
         if not post.is_self:
             # If the post does not already have a comment
-            if not check_if_comment_exists(r, post, os.environ["comment"]):
+            if not check_if_comment_exists(r, post):
                 # Upvote post
                 post.upvote()
                 # Add the comment
