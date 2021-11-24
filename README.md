@@ -17,7 +17,7 @@ You can create the reddit bot by following these steps:
 
 Note the outputted client id and secret and add it your code's [local.settings.json](./CommentRedditPost/local.settings.json).
 
-# Setup
+## Setup
 
 1. Create an Azure function as mentioned [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=python).
 2. Update the __init__.py code with the code from this repo's [__init__.py](./CommentRedditPost/__init__.py).
