@@ -8,11 +8,11 @@ import azure.functions as func
 def bot_login():
 	print("Logging in...")
 
-	r = praw.Reddit(username = os.environ["username"],
+	r = praw.Reddit(username = os.environ["reddit_username"],
 				password = os.environ["password"],
 				client_id = os.environ["client_id"],
 				client_secret = os.environ["client_secret"],
-				user_agent = "The Reddit Commenter v1.0")
+				user_agent = "RedditAutoPostCommenter")
 
 	print("Logged in!")
 
@@ -31,6 +31,7 @@ def check_if_comment_exists(r, post, comment):
         if comment.body == comment:
             return True
     return False
+
 
 def main(mytimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.datetime.utcnow().replace(
